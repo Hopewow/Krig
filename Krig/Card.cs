@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Krig
 {
-    public enum Suite
+    public enum Suit
     {
         Clubs,
         Diamonds,
@@ -15,14 +15,9 @@ namespace Krig
     public class Card
     {
         public string DisplayName { get; set; }
-        public string Suite { get; set; }
+        public Suit Suit { get; set; }
         public int Value { get; set; }
 
-        public Card(String name, int value)
-        {
-            Suite = name;
-            Value = value;
-        }
-        
+
     }
 }
