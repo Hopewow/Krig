@@ -7,8 +7,8 @@ namespace Krig
     public enum Suit
     {
         Clubs,
-        Diamonds,
         Spades,
+        Diamonds,
         Hearts
     }
 
@@ -17,7 +17,5 @@ namespace Krig
         public string DisplayName { get; set; }
         public Suit Suit { get; set; }
         public int Value { get; set; }
-
-
     }
 }

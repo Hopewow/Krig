@@ -9,10 +9,5 @@ namespace Krig
     {
         public string Name { get; set; }
         public Queue<Card> Deck { get; set; }
-
-
-
-
-
     }
 }
