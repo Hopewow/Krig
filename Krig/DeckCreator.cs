@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Krig
 {
-    public static class DeckCreator
+    public class DeckCreator
     {
 
         // Create 52 Cards
@@ -30,6 +30,7 @@ namespace Krig
             return Shuffle(cards);
         }
 
+        // Shuffle/Randomize the deck.
         private static Queue<Card> Shuffle(Queue<Card> Cards)
         {
             Random rnd = new Random();

@@ -6,9 +6,12 @@ namespace Krig
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            DeckCreator.CreateCards();
-
+            Game game = new Game("Anders", "Jesper");
+            while (!game.IsEndOfGame())
+            {
+                game.PlayTurn();
+            }
+            Console.Read();
         }
     }
 }
