@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Krig
@@ -26,12 +27,33 @@ namespace Krig
                     });
                 }
             }
-            return cards;
+            return Shuffle(cards);
         }
 
         private static Queue<Card> Shuffle(Queue<Card> Cards)
         {
+            Random rnd = new Random();
+            List<Card> QueueToList = Cards.ToList();
 
+            for (int i = QueueToList.Count - 1; i > 0; i--)
+            {
+                // First: Pick a random card that has not been already picked
+                int c = rnd.Next(i + 1);
+
+                // Second: Swap random card pick with the last "unselected" in the collection
+                // Note: i is the last in line.
+                Card temp = QueueToList[i];
+                QueueToList[i] = QueueToList[c];
+                QueueToList[c] = temp;
+            }
+
+            // Adds the shuffled cards back to queue following Card object.
+            Queue<Card> ShuffledCards = new Queue<Card>();
+            foreach (var card in QueueToList)
+            {
+                ShuffledCards.Enqueue(card);
+            }
+            return ShuffledCards;
         }
 
         // Formats the int values to string and display J,Q,K & A correctly.
