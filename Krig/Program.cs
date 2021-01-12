@@ -6,10 +6,10 @@ namespace Krig
     {
         private static void Main(string[] args)
         {
-            Game game = new Game("Anders", "Jesper");
-            while (!game.IsEndOfGame())
+            Game game = new Game("Anders", "Jesper"); // Starts game.
+            while (!game.IsEndOfGame()) // Checks if game is over.
             {
-                game.PlayTurn();
+                game.PlayTurn(); // Runs each turn.
             }
             Console.Read();
         }

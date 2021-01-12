@@ -45,8 +45,6 @@ namespace Krig
         public void PlayTurn()
         {
             Queue<Card> CardsOnTable = new Queue<Card>();
-            Console.WriteLine(Player1.Deck.Count);
-            Console.WriteLine(Player2.Deck.Count);
 
             // Players cards:
             var Player1Card = Player1.Deck.Dequeue();

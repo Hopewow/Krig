@@ -23,13 +23,13 @@ namespace Krig
             Queue<Card> player2cards = new Queue<Card>();
 
             int counter = 2;
-            while (cards.Any())
+            while (cards.Any()) // This runs until there is no cards left in cards variable.
             {
-                if (counter % 2 == 0) //Card etiquette says the player who is NOT the dealer gets first card
+                if (counter % 2 == 0) // Everytime we hit an even number that card goes into player2's deck
                 {
                     player2cards.Enqueue(cards.Dequeue());
                 }
-                else
+                else // Everytime we are on an uneven number that card goes into player1's deck
                 {
                     player1cards.Enqueue(cards.Dequeue());
                 }
