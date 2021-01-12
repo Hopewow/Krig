@@ -22,7 +22,7 @@ namespace Krig
             Queue<Card> player1cards = new Queue<Card>();
             Queue<Card> player2cards = new Queue<Card>();
 
-            int counter = 2;
+            int counter = 1;
             while (cards.Any()) // This runs until there is no cards left in cards variable.
             {
                 if (counter % 2 == 0) // Everytime we hit an even number that card goes into player2's deck
