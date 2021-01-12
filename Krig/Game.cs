@@ -58,7 +58,6 @@ namespace Krig
             // Write what is drawn:
             Console.WriteLine(Player1.Name + " draws a " + Player1Card.DisplayName + " & " + Player2.Name + " draws a " + Player2Card.DisplayName);
 
-
             // Check if there is war
             while (Player1Card.Value == Player2Card.Value)
             {
@@ -84,7 +83,6 @@ namespace Krig
                 CardsOnTable.Enqueue(Player2.Deck.Dequeue());
                 CardsOnTable.Enqueue(Player2.Deck.Dequeue());
 
-
                 // Fourth card faced up
                 Player1Card = Player1.Deck.Dequeue();
                 Player2Card = Player2.Deck.Dequeue();
@@ -95,27 +93,53 @@ namespace Krig
                 Console.WriteLine(Player1.Name + " draws a " + Player1Card.DisplayName + " & " + Player2.Name + " draws a " + Player2Card.DisplayName);
             }
 
-
             // Notes: 
             // 1st Add the won cards to the winning players deck
             // 2nd display winning player that round
-            if (Player1Card.Value < Player2Card.Value)
-            {
-                foreach (var card in CardsOnTable)
-                {
-                    Player2.Deck.Enqueue(card);
-                }
+            // 3rd Aces only win against kings. (Atleast when i play War.)
 
-                Console.WriteLine(Player2.Name + " takes the hand!");
+            if (Player1Card.Value < Player2Card.Value) // Checks if Player 2 has higher value than player 1.
+            {
+                // Checks if Player 2 has an Ace. If he has an ace and Player 1 does not have a king player 1 wins.
+                if (Player1Card.Value != 13 && Player2Card.Value == 14)
+                {
+                    foreach (var card in CardsOnTable)
+                    {
+                        Player1.Deck.Enqueue(card);
+                    }
+
+                    Console.WriteLine(Player1.Name + " takes the hand!");
+                }
+                else
+                {
+                    foreach (var card in CardsOnTable)
+                    {
+                        Player2.Deck.Enqueue(card);
+                    }
+
+                    Console.WriteLine(Player2.Name + " takes the hand!");
+                }
             }
-            else
-            {
-                foreach (var card in CardsOnTable)
+            else // If here player 1 has higher value than player 1.
+            { 
+                if (Player2Card.Value != 13 && Player1Card.Value == 14)
                 {
-                    Player1.Deck.Enqueue(card);
-                }
+                    foreach (var card in CardsOnTable)
+                    {
+                        Player2.Deck.Enqueue(card);
+                    }
 
-                Console.WriteLine(Player1.Name + " takes the hand!");
+                    Console.WriteLine(Player2.Name + " takes the hand!");
+                }
+                else
+                {
+                    foreach (var card in CardsOnTable)
+                    {
+                        Player1.Deck.Enqueue(card);
+                    }
+
+                    Console.WriteLine(Player1.Name + " takes the hand!");
+                }
             }
 
             TurnCount++;

@@ -12,7 +12,6 @@ namespace Krig
         public Queue<Card> Deck { get; set; }
         public Player(){ }
 
-
         public Player(string PlayerName)
         {
             Name = PlayerName;
